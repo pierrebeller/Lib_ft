@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_push_back.c                                 :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbeller <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/27 11:45:36 by pbeller           #+#    #+#             */
-/*   Updated: 2016/11/27 11:45:44 by pbeller          ###   ########.fr       */
+/*   Created: 2017/01/19 17:53:41 by pbeller           #+#    #+#             */
+/*   Updated: 2017/01/19 17:53:47 by pbeller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_lst_push_back(t_list **lst, t_list *elem)
-{
-	t_list	*tmp;
+# include <stdlib.h>
+# include <unistd.h>
 
-	if (!lst)
-		return ;
-	if (!(*lst))
-		*lst = elem;
-	else
-	{
-		tmp = *lst;
-		while (tmp->next)
-		{
-			tmp = tmp->next;
-		}
-		tmp->next = elem;
-	}
-}
+# define BUFF_SIZE 4096
+# define MAX_FD 4096
+# define NEWLINE '\n'
+
+int		fill_buff(int fd, char **stock, char **line);
+int		get_next_line(const int fd, char **line);
+int		stock_gestion(int fd, char **stock, char **line);
+
+#endif

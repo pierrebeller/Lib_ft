@@ -77,7 +77,8 @@ OBJ =	ft_putchar.o \
 		ft_is_white_space.o \
 		ft_is_lowercase.o \
 		ft_is_uppercase.o \
-		ft_lstlen.o
+		ft_lstlen.o \
+		get_next_line.o
 
 CC = gcc
 
@@ -89,7 +90,7 @@ $(NAME) : $(OBJ)
 	ar rc $(NAME) $(OBJ) && ranlib libft.a
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $(OBJ:.o=.c)
+	$(CC) $(CFLAGS) -c $<
 
 clean :
 	rm -f $(OBJ)

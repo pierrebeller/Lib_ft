@@ -21,6 +21,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					get_next_line(const int fd, char **line);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 int					ft_isalnum(int c);
 size_t				ft_strlen(const char *str);
