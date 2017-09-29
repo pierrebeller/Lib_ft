@@ -14,13 +14,13 @@
 
 int		ft_lstlen(t_list *list)
 {
-	int x;
+	int len;
 
-	x = 0;
-	while (list->next)
+	len = 0;
+	while (list)
 	{
-		x++;
 		list = list->next;
+		len++;
 	}
-	return (x);
+	return (len);
 }
